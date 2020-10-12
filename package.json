@@ -2,7 +2,7 @@
   "name": "react-ace-editor",
   "version": "0.0.3",
   "description": "A react wrapper for the ace editor",
-  "main": "./dist/index.js",
+  "main": "./build/index.js",
   "dependencies": {
     "brace": "^0.11.1",
     "prop-types": "15.7.2",
@@ -17,7 +17,7 @@
     "@babel/preset-react": "7.10.4"
   },
   "scripts": {
-    "build": "npx babel src --out-dir dist",
+    "build": "npx babel src --out-dir build",
     "prepublish": "npm run build",
     "publish": "npm publish ./"
   },
