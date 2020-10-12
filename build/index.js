@@ -34,7 +34,13 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 
 var isBrowser = typeof window !== 'undefined';
 var ace;
-if (isBrowser) ace = require('brace');
+
+if (isBrowser) {
+  ace = require('ace-builds');
+  ace.config.set('basePath', 'ace-builds/src-noconflict');
+
+  require("ace-builds/src-noconflict/ext-searchbox.js");
+}
 
 var CodeEditor = /*#__PURE__*/function (_Component) {
   _inherits(CodeEditor, _Component);
@@ -63,15 +69,16 @@ var CodeEditor = /*#__PURE__*/function (_Component) {
           mode = _this$props.mode,
           textWrap = _this$props.textWrap;
 
-      require("brace/mode/".concat(mode));
+      require("ace-builds/src-noconflict/mode-".concat(mode));
 
-      require("brace/theme/".concat(theme));
+      require("ace-builds/src-noconflict/theme-".concat(theme));
 
       var editor = ace.edit('ace-editor', editorProps);
       editor.$blockScrolling = Infinity;
-      this.editor = editor;
+      editor.getSession().setUseWorker(false);
       editor.getSession().setMode("ace/mode/".concat(mode));
       editor.setTheme("ace/theme/".concat(theme));
+      this.editor = editor;
       editor.on('change', function (e) {
         return onChange(editor.getValue(), e);
       });

@@ -4,10 +4,15 @@ import PropTypes from 'prop-types'
 const isBrowser = typeof window !== 'undefined'
 let ace
 
-if (isBrowser) ace = require('brace')
+if (isBrowser){
+  ace = require('ace-builds')
+  ace.config.set('basePath', 'ace-builds/src-noconflict')
+  require(`ace-builds/src-noconflict/ext-searchbox.js`)
+}
 
 class CodeEditor extends Component {
   componentDidMount() {
+
     if(!isBrowser) return
 
     const {
@@ -23,20 +28,20 @@ class CodeEditor extends Component {
       textWrap,
     } = this.props
 
-    require(`brace/mode/${mode}`)
-    require(`brace/theme/${theme}`)
+    require(`ace-builds/src-noconflict/mode-${mode}`)
+    require(`ace-builds/src-noconflict/theme-${theme}`)
 
     const editor = ace.edit('ace-editor', editorProps)
     editor.$blockScrolling = Infinity
-    this.editor = editor
-
+    editor.getSession().setUseWorker(false)
     editor.getSession().setMode(`ace/mode/${mode}`)
     editor.setTheme(`ace/theme/${theme}`)
+
+    this.editor = editor
     editor.on('change', e => onChange(editor.getValue(), e))
     editor.setReadOnly(readOnly || setReadOnly)
     editor.setValue(value || setValue)
     editor.session.setUseWrapMode(textWrap)
-
     !autoSelect && editor.setValue(editor.getValue(), -1)
 
   }
