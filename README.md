@@ -1,7 +1,7 @@
 # Ace Editor in React
 * This is a react wrapper around the [Ace Editor](https://ace.c9.io)
-* It was rorked from [react-ace-editor](https://github.com/chunsli/react-ace-editor)
-  * Then updated with a few things
+* It was forked from [react-ace-editor](https://github.com/chunsli/react-ace-editor)
+  * Then updated with a few things ( dependencies and extra props )
 * [Ace Editor Demo](https://ace.c9.io/build/kitchen-sink.html)
 * [Ace Editor Github](https://github.com/ajaxorg/ace)
 
