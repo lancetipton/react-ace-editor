@@ -59,6 +59,7 @@ var CodeEditor = /*#__PURE__*/function (_Component) {
       if (!isBrowser) return;
       var _this$props = this.props,
           autoSelect = _this$props.autoSelect,
+          editorId = _this$props.editorId,
           editorProps = _this$props.editorProps,
           onChange = _this$props.onChange,
           setReadOnly = _this$props.setReadOnly,
@@ -73,7 +74,7 @@ var CodeEditor = /*#__PURE__*/function (_Component) {
 
       require("ace-builds/src-noconflict/theme-".concat(theme));
 
-      var editor = ace.edit('ace-editor', editorProps);
+      var editor = ace.edit(editorId, editorProps);
       editor.$blockScrolling = Infinity;
       editor.getSession().setUseWorker(false);
       editor.getSession().setMode("ace/mode/".concat(mode));

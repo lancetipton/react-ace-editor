@@ -17,6 +17,7 @@ class CodeEditor extends Component {
 
     const {
       autoSelect,
+      editorId,
       editorProps,
       onChange,
       setReadOnly,
@@ -31,7 +32,7 @@ class CodeEditor extends Component {
     require(`ace-builds/src-noconflict/mode-${mode}`)
     require(`ace-builds/src-noconflict/theme-${theme}`)
 
-    const editor = ace.edit('ace-editor', editorProps)
+    const editor = ace.edit(editorId, editorProps)
     editor.$blockScrolling = Infinity
     editor.getSession().setUseWorker(false)
     editor.getSession().setMode(`ace/mode/${mode}`)
