@@ -1,26 +1,14 @@
 {
-  "name": "react-ace-editor",
-  "version": "0.0.4",
+  "name": "@ltipton/react-ace-editor",
+  "version": "0.0.0",
   "description": "A react wrapper for the ace editor",
   "main": "./build/index.js",
-  "dependencies": {
-    "ace-builds": "1.4.12",
-    "prop-types": "15.7.2",
-    "react": "16.12.0"
+  "author": "Lance Tipton",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lancetipton/react-ace-editor/issues"
   },
-  "devDependencies": {
-    "@babel/cli": "7.10.5",
-    "@babel/core": "7.10.5",
-    "@babel/plugin-proposal-class-properties": "7.10.4",
-    "@babel/plugin-transform-object-assign": "7.10.4",
-    "@babel/preset-env": "7.10.4",
-    "@babel/preset-react": "7.10.4"
-  },
-  "scripts": {
-    "build": "npx babel src --out-dir build",
-    "prepublish": "npm run build",
-    "publish": "npm publish ./"
-  },
+  "homepage": "https://github.com/lancetipton/react-ace-editor#readme",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/lancetipton/react-ace-editor.git"
@@ -31,10 +19,31 @@
     "code",
     "editor"
   ],
-  "author": "Lance Tipton",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/lancetipton/react-ace-editor/issues"
+  "scripts": {
+    "test": "echo",
+    "build": "npx babel src --out-dir build"
   },
-  "homepage": "https://github.com/lancetipton/react-ace-editor#readme"
+  "private": false,
+  "publishConfig": {
+    "access": "public"
+  },
+  "files": [
+    "build"
+  ],
+  "dependencies": {
+    "ace-builds": "1.4.12",
+    "prop-types": "15.7.2"
+  },
+  "devDependencies": {
+    "@babel/cli": "7.10.5",
+    "@babel/core": "7.10.5",
+    "@babel/plugin-proposal-class-properties": "7.10.4",
+    "@babel/plugin-transform-object-assign": "7.10.4",
+    "@babel/preset-env": "7.10.4",
+    "@babel/preset-react": "7.10.4"
+  },
+  "peerDependencies": {
+    "react": ">=16.8.0 <18.0.0",
+    "react-dom": ">=16.8.0 <18.0.0"
+  }
 }
